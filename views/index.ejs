@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <main>
+        <div class="card">
+            <div class="card-body">
+              <p class="card-text">❝ <%= locals.newQuote.quote  %>❞</p>
+            </div>
+            <span class="author"> - <%= locals.newQuote.author %></span>
+          </div>
+          <div class="generate-button">
+            <button class="btn btn-dark"><a href="/">New Quote</a></button>
+          </div>
+    </main>
+
+     <footer>
+        <div class="footer-container">
+            <h4>Hi, <%= (locals.user.username) %>!</h4>  <!-- Name of the user should be displayed dynamically -->
+            <h4>Subscribe to our newsletter for daily quotes.</h4>
+            <form method="post" action="/">
+                <div class=" mb-3">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" autocomplete="email"  >
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <% if (locals.message) { %>
+             <p style="margin: 0 1em; color: #39A7FF;"><%= message %></p>
+            <% } %>
+        </div>
+        </footer>
+     <%- include('./partials/script') %>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+  <body>
+    <% if (locals.message) { %>
+      <div style="text-align: center; margin-top: 1em;">
+        <h4 style="color: rgb(181, 3, 3);"><%= message %></h4>
+      </div>
+    <% } %>
+    
+    <div
+      class="container"
+      style="
+        max-width: 500px;
+        margin: auto;
+        margin-top: 5em;
+        border: 2px solid rgb(220, 220, 220);
+        border-radius: 10px;
+        
+      "
+    >
+      <div
+        class="site-logo"
+        style="margin: auto; width: max-content; padding-top: 1em"
+      >
+        <img src="/logo.jpg" style="width: 50px; border-radius: 50%" alt="" />
+        <h4 style="display: inline">Daily Quotes</h4>
+      </div>
+      <form class="m-4" method="post" action="/auth/signup">
+        <div class="mb-3">
+          <label for="exampleInputUsername" class="form-label"
+            >Username</label
+          >
+          <input
+            type="text"
+            name="username"
+            class="form-control mb-3"
+            id="exampleInputUsername"
+            aria-describedby="emailHelp"
+            autocomplete="username"
+          />
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            autocomplete="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            autocomplete="current-password"
+          />
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <button type="submit" class="btn btn-primary">Signup</button>
+          <a href="/auth/login" style="text-decoration: none; ">Login</a>
+          </div>
+      </form>
+      <div style="width: max-content; margin: auto; color: rgb(135, 135, 135)">
+        <span>or</span>
+      </div>
+      <div style="text-align: center; margin: 1em 0;">
+        <button
+        type="button"
+        style="
+          min-width: 300px;
+          background-color: white;
+          border: 0px solid;
+          border-radius: 5px;
+          box-shadow: 0px 0px 0px 0.5px rgb(222, 222, 222);
+          "
+      >
+      <img src="/google.jpg" style="width: 40px" alt="" />
+      <a href="/auth/login/federated/google" style="text-decoration: none;">Continue with Google</a>
+    </button>
+</div>
+    </div>
+    <%- include('./partials/script') %>
+  </body>
+</html>
