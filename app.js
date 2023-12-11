@@ -11,9 +11,9 @@ const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 3000
 const indexRouter = require('./routes/index')
 const authRouter = require('./routes/auth')
+const cronRoute = require('./routes/cronjob')
 const connectToDatabase = require('./database')
 const { validateAuthentication } = require('./services')
-const job = require('./scheduled')
 
 connectToDatabase(process.env.MONGO_URI).then(() => console.log("Connected to Database"))
 
@@ -39,7 +39,8 @@ app.use(session({
 app.use(passport.authenticate('session'))
 
 
-app.use('/auth', authRouter)
+app.use('/run', cronRoute)
+app.use('/auth', authRouter) 
 app.use('/',validateAuthentication(),indexRouter)
 app.get('/*', (req, res) => {
     res.render('error', {
@@ -48,6 +49,6 @@ app.get('/*', (req, res) => {
 })
 
 
-job.start()
+
 
 app.listen(PORT, ()=> console.log(`Server running at port ${PORT}`))
