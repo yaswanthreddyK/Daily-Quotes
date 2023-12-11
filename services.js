@@ -46,7 +46,7 @@ function sendAMail(mailOptions, cb){
             from: process.env.EMAIL,
             to: req.body.email,
             subject: 'Email Verification',
-            html: `Click <a href="http://localhost:3000/auth/verify/${id}">here</a> to verify!`
+            html: `Click <a href="https://tiny-goat-spacesuit.cyclic.app/auth/verify/${id}">here</a> to verify!`
         }
 
         const callback = (err, result) => {
