@@ -10,7 +10,7 @@ function renderHomepage(req, res){
     })
 }
 
-async function handleEmailSubscription(){
+async function handleEmailSubscription(req, res){
     const message = await validateEmailAndSubscribe(req.user, req.body.email)
     const newQuote = generateNewQuote()
  

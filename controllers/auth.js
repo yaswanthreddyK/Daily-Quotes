@@ -69,7 +69,7 @@ function handleUserLogout(req, res, next){
 
 
 
-async function handleUserEmailVerification(){
+async function handleUserEmailVerification(req,res){
     const id = req.params.id
     try{
   
