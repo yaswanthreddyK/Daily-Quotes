@@ -4,8 +4,7 @@ const job = require('../scheduled')
 
 router.get('/cronjob',  (req, res) => {
     try{
-         job()
-        res.send('Mails sent succesfully')
+         job(req,res)
     }catch(err){
         res.status(500).end('Internal server error')
     }

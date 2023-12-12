@@ -2,7 +2,7 @@ const User = require('./models/user')
 const googleUser = require('./models/googleUser')
 const { generateNewQuote, sendAMail } = require('./services')
 
-const job =  async () => {
+const job =  async (req,res) => {
       const users = await User.find({subscriber: true})
       const googleUsersProfile = await googleUser.find({subscriber: true})
       const allUsers = users.concat(googleUsersProfile)
@@ -29,6 +29,7 @@ const job =  async () => {
           }
           
         })
+        return res.send(allUsers)
     }
 
 
