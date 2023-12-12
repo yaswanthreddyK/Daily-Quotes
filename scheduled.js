@@ -25,12 +25,16 @@ const job =  async (req,res) => {
               subject: 'Quote for the day',
               html: data
             }
+            console.log('scheduled')
             sendAMail(mailOptions, callback)
+            console.log('After scheduled')
            user1 = user
       })
+      console.log(data)
           }
           
         })
+        console.log('all done')
         return res.send(user1)
     }
 
