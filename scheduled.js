@@ -11,11 +11,11 @@ const job =  async (req,res) => {
       const path = require('path')
 
       const callback = (err, result) => {
-        if(err) console.log(err)
+        if(err) throw new Error(err)
       }
          ejs.renderFile(path.resolve('./views/email.ejs'),{quote}, (err, data) => {
           if(err){
-            console.log(err)
+            throw new Error(err)
           }else{
            allUsers.forEach((user) => {
             const mailOptions = {
@@ -25,11 +25,11 @@ const job =  async (req,res) => {
               html: data
             }
             sendAMail(mailOptions, callback)
+            return res.send(user.email)
       })
           }
           
         })
-        return res.send(allUsers)
     }
 
 
