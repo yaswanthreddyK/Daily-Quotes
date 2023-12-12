@@ -7,7 +7,6 @@ const job =  async () => {
       const googleUsersProfile = await googleUser.find({subscriber: true})
       const allUsers = users.concat(googleUsersProfile)
       const {quote} = generateNewQuote()
-      console.log(quote)
       const ejs = require('ejs')
       const path = require('path')
 
