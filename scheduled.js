@@ -13,7 +13,6 @@ const job =  async (req,res) => {
       const callback = (err, result) => {
         if(err) throw new Error(err)
       }
-    let user1;
          ejs.renderFile(path.resolve('./views/email.ejs'),{quote}, (err, data) => {
           if(err){
             throw new Error(err)
@@ -25,17 +24,12 @@ const job =  async (req,res) => {
               subject: 'Quote for the day',
               html: data
             }
-            console.log('scheduled')
             sendAMail(mailOptions, callback)
-            console.log('After scheduled')
-           user1 = user
       })
-      console.log(data)
           }
           
         })
-        console.log('all done')
-        return res.send(user1)
+        return res.send("mails send")
     }
 
 

@@ -35,9 +35,7 @@ function sendAMail(mailOptions, cb){
             pass: process.env.PASSWORD
         }
     })
-    console.log('mail sending....')
     transporter.sendMail(mailOptions,cb)
-    console.log('mail sent')
 }
 
  function verifyEmail(req, res, id){

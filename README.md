@@ -4,8 +4,8 @@
 
 <h3>Tech stack</h3>
 <ul>
-  <li>ExpressJS - Backend</li>
-  <li>Mongoose - Database</li>
+  <li>NodeJS - Backend</li>
+  <li>MongoDB - Database</li>
   <li>Nodemailer - To Schedule mails</li>
   <li>PassportJS - Authentication</li>
   <li>EJS - Template Engine</li>
