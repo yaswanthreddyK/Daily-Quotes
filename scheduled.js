@@ -13,6 +13,7 @@ const job =  async (req,res) => {
       const callback = (err, result) => {
         if(err) throw new Error(err)
       }
+    let user1;
          ejs.renderFile(path.resolve('./views/email.ejs'),{quote}, (err, data) => {
           if(err){
             throw new Error(err)
@@ -25,11 +26,12 @@ const job =  async (req,res) => {
               html: data
             }
             sendAMail(mailOptions, callback)
-            return res.send(user.email)
+           user1 = user
       })
           }
           
         })
+        return res.send(user1)
     }
 
 
